@@ -1,0 +1,24 @@
+1a.
+1. Acceptable
+2. Not acceptable
+3. Acceptable
+4. Not acceptable
+5. Acceptable
+6. Not acceptable
+7. Not acceptable
+
+1b:
+emacs, Eclipse, vim, Microsoft Visual Studio, Sublime
+
+1c:
+3. Can use 2 out of 4 grace days on a single assignment.
+
+1d:
+2. Send email to instructor letting them know it's late.
+
+2a. 
+Git Bash and Terminal 
+
+2b. git add hw1q2b.cpp
+	
+	git log -n 3
