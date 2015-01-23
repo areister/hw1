@@ -40,7 +40,6 @@ Item* travel(Item* head)
 	{
 		travel(head -> next);
 	}
-	
 }
 
 
@@ -52,37 +51,34 @@ Item* concatenate(Item* head1, Item* head2) //returns one list
 	newhead2 = copy(head2);
 
 	Item* end = new Item(0, NULL);
-
 	end = travel(newhead1);
-
-
-	//head1->next = head2;
 	end->next = new Item(newhead2->val, newhead2->next);
 	return newhead1;
 }
 	
 
-
-
-/*
-
 void removeEvens(Item*& head)
 {
 	if (head -> next == NULL)
 	{
-		break;
+		//break;
 	}
-	while (head -> next != NULL)
+	else 
 	{
-		int input = head -> val;
+
+		int input = head -> next -> val;
 		if (input % 2 == 0)
 		{
-
+			head -> next = head -> next -> next;
+			removeEvens(head);
+		}
+		else
+		{
+			removeEvens(head -> next);
 		}
 	}
-
 }
-*/
+
 
 
 
@@ -120,9 +116,7 @@ int main (int argc, char *argv[])
 		ss << buffer;
 		string input; 
 		while (!ss.eof()) 
-		//while(ss>>input)
 		{
-			//string input;
 			ss >> input;
 			int IntInput = atoi(input.c_str());
 
@@ -159,7 +153,6 @@ int main (int argc, char *argv[])
 					//cout << IntInput << " ";
 				}
 			}
-			//string input;
 		}
 		counter++;
 	}
@@ -168,16 +161,19 @@ int main (int argc, char *argv[])
 	//Item* head2 = NULL;
 	//Item* head3 = NULL;
 
-	
+	ofstream ofile(argv[2]);
 
 	head3 = concatenate(head1, head2);
-	/*
+
+	ofile << "Head 3 List 1st round" << endl;
+	printList(ofile, head3);
+
 	removeEvens(head3);
-	cout << findAverage(head3) << endl;
-	*/
+	//cout << findAverage(head3) << endl;
+	
 
 
-	ofstream ofile(argv[2]);
+	//ofstream ofile(argv[2]);
 	ofile << "Head 1 List" << endl;
 	printList(ofile, head1);
 
