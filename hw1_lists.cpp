@@ -79,10 +79,42 @@ void removeEvens(Item*& head)
 	}
 }
 
+int counter(Item* head)
+{
+	if (head == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return (counter(head -> next) + 1);
+	}
+}
 
 
+double findSum(Item* head)
+{
+	if (head == NULL)
+	{
+		return 0;
+	}
+	else
+	{
+		return (findSum(head -> next) + head ->val);
+	}
+}
 
-//double findAverage(Item* head);
+double findAverage(Item* head)
+{
+	double total = findSum(head);
+	double number = counter(head);
+	cout << "Total: " << total << endl;
+	cout << "Number: " << number << endl;
+	return total/number;
+
+}
+
+
 
 void printList(std::ostream& ofile, Item* head)
 {
@@ -165,11 +197,11 @@ int main (int argc, char *argv[])
 
 	head3 = concatenate(head1, head2);
 
-	ofile << "Head 3 List 1st round" << endl;
-	printList(ofile, head3);
+	//ofile << "Head 3 List 1st round" << endl;
+	//printList(ofile, head3);
 
 	removeEvens(head3);
-	//cout << findAverage(head3) << endl;
+	cout << findAverage(head3) << endl;
 	
 
 
