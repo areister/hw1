@@ -118,11 +118,11 @@ int main (int argc, char *argv[])
 		stringstream ss;
 		getline(file, buffer);
 		ss << buffer;
-		//string input 
+		string input; 
 		while (!ss.eof()) 
 		//while(ss>>input)
 		{
-			string input;
+			//string input;
 			ss >> input;
 			int IntInput = atoi(input.c_str());
 
@@ -135,7 +135,7 @@ int main (int argc, char *argv[])
 					//cout << IntInput << " ";
 					//cout << "Head 1 " << head1 -> val << endl;
 				}
-				if (head1 != NULL)
+				else if (head1 != NULL)
 				{
 					current -> next = new Item(IntInput, NULL);
 					current = current -> next;
@@ -152,14 +152,14 @@ int main (int argc, char *argv[])
 					current = head2;
 					//cout << IntInput << " ";
 				}
-				if (head2 != NULL)
+				else if (head2 != NULL)
 				{
 					current -> next = new Item(IntInput, NULL);
 					current = current -> next;
 					//cout << IntInput << " ";
 				}
 			}
-			//string input
+			//string input;
 		}
 		counter++;
 	}
